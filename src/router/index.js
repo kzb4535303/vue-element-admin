@@ -38,40 +38,37 @@ export const constantRouterMap = [
   },
 
   {
-    path: '/example',
+    path: '/userMag',
     component: Layout,
-    redirect: '/example/table',
-    name: 'Example',
-    meta: { title: 'Example', icon: 'example' },
+    redirect: '/userMag/user',
+    alwaysShow: true,
+    name: 'UserMag',
+    meta: { title: '用户管理', icon: 'eye' },
     children: [
       {
-        path: 'table',
-        name: 'Table',
-        component: () => import('@/views/table/index'),
-        meta: { title: 'Table', icon: 'table' }
-      },
-      {
-        path: 'tree',
-        name: 'Tree',
-        component: () => import('@/views/tree/index'),
-        meta: { title: 'Tree', icon: 'tree' }
+        path: 'user',
+        name: 'User',
+        component: () => import('@/views/user/user'),
+        meta: { title: '用户信息' }
       }
     ]
   },
-
-  {
-    path: '/form',
+   {
+    path: '/adminMag',
     component: Layout,
+    redirect: '/adminMag/news',
+    alwaysShow: true,
+    name: 'adminMag',
+    meta: { title: '后台管理', icon: 'example' },
     children: [
       {
-        path: 'index',
-        name: 'Form',
-        component: () => import('@/views/form/index'),
-        meta: { title: 'Form', icon: 'form' }
+        path: 'news',
+        name: 'news',
+        component: () => import('@/views/adminMag/news'),
+        meta: { title: '文章管理' }
       }
     ]
   },
-
   { path: '*', redirect: '/404', hidden: true }
 ]
 
